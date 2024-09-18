@@ -1,0 +1,205 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(to bottom, #5F68E2, #34397C);
+    min-height: 100vh; /* Ensures the gradient covers the entire viewport height */
+    background-size: 100% 100vh; /* Make sure the gradient adjusts to the viewport height */
+    margin: 0;
+    display: flex;
+    flex-direction: row; /* Ensure sidebar and content are in a row */
+}
+
+/* Navigation sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar .logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo-img {
+    height: 60px;
+}
+
+.profile-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-info img {
+    height: 80px;
+    border-radius: 50%;
+}
+
+.profile-info h3 {
+    color: #000;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+/* Menu items */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500; /* Medium weight for menu items */
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+}
+
+.menu-item.active {
+    background-color: #5F68E2;
+    color: #fff;
+}
+
+/* Logout button */
+.logout-button {
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: center;
+}
+
+.logout-button:hover {
+    background-color: darkred;
+}
+
+/* Main content */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* Leaderboard */
+.leaderboard {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.leaderboard table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.leaderboard th, .leaderboard td {
+    padding: 15px;
+    text-align: center; /* Center align text */
+    border-bottom: 1px solid #ddd;
+}
+
+.leaderboard th {
+    background-color: #f4f4f4;
+    font-weight: 600;
+    font-size: 18px; /* Larger font size for headers */
+}
+
+.leaderboard td {
+    font-size: 16px; /* Larger font size for table data */
+}
+
+.leaderboard tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2); /* Slight transparent background */
+    color: #fff;
+    font-size: 14px;
+    position: relative;
+    width: 100%; /* Ensure full width */
+    bottom: 0;
+}
+
+/* Footer Links */
+.footer-link {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column; /* Stack sidebar and content vertically */
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto; /* Allow height to be dynamic */
+        flex-direction: row;
+        overflow-x: auto; /* Horizontal scroll for menu items if necessary */
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 10px;
+    }
+
+    .profile-info img {
+        height: 60px;
+    }
+
+    .profile-info h3 {
+        font-size: 18px;
+    }
+
+    .menu-item {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .logout-button {
+        font-size: 16px;
+        padding: 8px;
+    }
+}

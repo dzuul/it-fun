@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scores</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="scores.css">
+    <style>
+        .leaderboard table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .leaderboard th, .leaderboard td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        .leaderboard th {
+            background-color: #f4f4f4;
+            font-size: 18px;
+        }
+        .leaderboard td {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="assets/logo.png" alt="Logo" class="logo-img">
+            </a>
+        </div>
+        <div class="profile-info">
+            <img src="assets/pfp.png" alt="Profile Picture">
+            <h3>Dzul</h3>
+        </div>
+        <div class="menu">
+            <a href="profile.html" class="menu-item">Profile</a>
+            <a href="scores.html" class="menu-item active">Scores</a>
+        </div>
+        <button class="logout-button" id="logoutButton">Log Out</button>
+    </div>
+
+    <div class="main-content">
+        <div class="leaderboard">
+            <h2>Leaderboard</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Game</th>
+                        <th>Score</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboardBody">
+                    <!-- Scores will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <a href="about.html" class="footer-link">about</a>
+        <p>© 2024 it.fun | All rights reserved.</p>
+    </footer>
+    <script>
+        // Load and display scores from localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const leaderboardBody = document.getElementById('leaderboardBody');
+            const scores = JSON.parse(localStorage.getItem('scores')) || [];
+
+            scores.forEach(score => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${score.username}</td>
+                    <td>${score.game}</td>
+                    <td>${score.score}</td>
+                    <td>${score.time}</td>
+                `;
+                leaderboardBody.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html>

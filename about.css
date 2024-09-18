@@ -1,0 +1,108 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(to bottom, #5F68E2, #34397C);
+    min-height: 100vh; /* Ensures the gradient covers the entire viewport height */
+    background-size: 100% 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Navigation bar */
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 2px solid #ccc;
+}
+
+.logo-img {
+    height: 60px;
+}
+
+/* Content section */
+.content {
+    text-align: center;
+    margin: 50px auto;
+    color: #fff;
+    padding: 0 20px; /* Add padding to avoid content touching edges */
+}
+
+.content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    margin-bottom: 10px; /* Adjusted gap between lines */
+    line-height: 1.4;    /* Tighter line spacing */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Media Queries for Responsive Design */
+
+/* For tablets and larger mobile devices */
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 28px; /* Adjust font size for smaller screens */
+    }
+
+    .content p {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+
+    .logo-img {
+        height: 50px; /* Adjust logo size for smaller screens */
+    }
+
+    .nav {
+        padding: 15px;
+    }
+}
+
+/* For smaller mobile devices */
+@media (max-width: 480px) {
+    .content h1 {
+        font-size: 24px; /* Further adjust font size for very small screens */
+    }
+
+    .content p {
+        font-size: 14px; /* Further adjust font size for very small screens */
+    }
+
+    .logo-img {
+        height: 40px; /* Further adjust logo size for very small screens */
+    }
+
+    .nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .content {
+        margin: 20px auto;
+        padding: 0 10px; /* Add padding for very small screens */
+    }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Image</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover; /* Ensures the image covers the entire viewport without distortion */
+        }
+    </style>
+</head>
+<body>
+    <a href="login.html">
+        <img src="assets/lmao.png" alt="Fullscreen Image">
+    </a>
+</body>
+</html>

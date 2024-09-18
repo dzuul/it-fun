@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .container h2 {
+            margin-bottom: 20px;
+        }
+        .container input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #218838;
+        }
+        .message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="auth-container">
+        <h2 id="form-title">rusak njer</h2>
+        <input type="text" id="username" placeholder="Username" />
+        <input type="password" id="password" placeholder="Password" />
+        <button onclick="handleSubmit()">Register</button>
+        <p id="message" class="message"></p>
+        <button onclick="toggleForm()">Switch to Login</button>
+    </div>
+
+    <script>
+        function toggleForm() {
+            const container = document.getElementById('auth-container');
+            const title = document.getElementById('form-title');
+            const button = container.querySelector('button');
+            const message = document.getElementById('message');
+            
+            if (title.textContent === 'Register') {
+                title.textContent = 'Login';
+                button.textContent = 'Login';
+                button.setAttribute('onclick', 'handleLogin()');
+                container.querySelector('button + button').style.display = 'none'; // Hide the switch button
+            } else {
+                title.textContent = 'Register';
+                button.textContent = 'Register';
+                button.setAttribute('onclick', 'handleSubmit()');
+                container.querySelector('button + button').style.display = 'inline'; // Show the switch button
+            }
+            message.textContent = '';
+        }
+
+        function handleSubmit() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const message = document.getElementById('message');
+            
+            if (username && password) {
+                let users = JSON.parse(localStorage.getItem('users')) || {};
+                if (users[username]) {
+                    message.textContent = 'User already exists.';
+                } else {
+                    users[username] = password;
+                    localStorage.setItem('users', JSON.stringify(users));
+                    message.textContent = 'User registered successfully!';
+                    message.style.color = 'green';
+                }
+            } else {
+                message.textContent = 'Please enter both username and password.';
+            }
+        }
+
+        function handleLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const message = document.getElementById('message');
+            
+            if (username && password) {
+                let users = JSON.parse(localStorage.getItem('users')) || {};
+                if (users[username] === password) {
+                    message.textContent = 'Login successful!';
+                    message.style.color = 'green';
+                } else {
+                    message.textContent = 'Invalid username or password.';
+                }
+            } else {
+                message.textContent = 'Please enter both username and password.';
+            }
+        }
+    </script>
+</body>
+</html>

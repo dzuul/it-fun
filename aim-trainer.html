@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aim Trainer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="aim-trainer.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+            <a href="index.html">
+                <img src="assets/logo.png" alt="Logo" class="logo-img">
+            </a>
+        </div>
+        <div class="menu">
+            <a href="index.html" class="menu-item">Home</a>
+            <a href="scores.html" class="menu-item">Scores</a>
+            <a href="profile.html" class="menu-item">Profile</a>
+        </div>
+        <div class="pfp">
+            <a href="profile.html">
+                <img src="assets/pfp.png" alt="Profile Picture" class="pfp-img">
+            </a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div id="aim-trainer-game">
+            <button id="start-button">Start</button>
+            <div id="target" class="hidden"></div>
+            <div id="result" class="hidden">
+                <p id="average-time">Average Reaction Time: 0 ms</p>
+                <button id="restart-button">Restart</button>
+            </div>
+            <p id="timer">Time Left: 30s</p>
+        </div>
+    </div>
+
+    <footer>        
+        <a href="about.html" class="footer-link">about</a>
+        <p>2024 © it.fun | All rights reserved</p>
+    </footer>
+
+    <script src="aim-trainer.js"></script>
+</body>
+</html>
